@@ -33,8 +33,14 @@ class ScannerViewController: UIViewController {
 
 }
 
+enum BarcodeProcessorError: Error {
+    case initializationFailure
+}
+
 class BarcodeProcessor {
     let asset: AVAsset = AVAsset()
     
-    
+    func process() throws {
+        
+    }
 }
