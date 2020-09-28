@@ -32,6 +32,7 @@
                     </view>
                     <connections>
                         <outlet property="liveView" destination="Geo-9a-92n" id="ict-of-Z0w"/>
+                        <outlet property="previewView" destination="Geo-9a-92n" id="fdK-3M-Dmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

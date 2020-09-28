@@ -16,6 +16,8 @@
 		A4409F10251E6A2D00F88A5D /* ScannerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4409F0F251E6A2D00F88A5D /* ScannerAppTests.swift */; };
 		A4409F1B251E6A2D00F88A5D /* ScannerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4409F1A251E6A2D00F88A5D /* ScannerAppUITests.swift */; };
 		A4409F34251E6BF800F88A5D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4409F33251E6BF800F88A5D /* ScannerViewController.swift */; };
+		A47352CD251FE496000F0793 /* VideoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47352CC251FE496000F0793 /* VideoProcessor.swift */; };
+		A47352D2251FE4B9000F0793 /* BarcodeProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47352D1251FE4B9000F0793 /* BarcodeProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		A4409F1A251E6A2D00F88A5D /* ScannerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerAppUITests.swift; sourceTree = "<group>"; };
 		A4409F1C251E6A2D00F88A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4409F33251E6BF800F88A5D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		A47352CC251FE496000F0793 /* VideoProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessor.swift; sourceTree = "<group>"; };
+		A47352D1251FE4B9000F0793 /* BarcodeProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				A4409F03251E6A2D00F88A5D /* LaunchScreen.storyboard */,
 				A4409F06251E6A2D00F88A5D /* Info.plist */,
 				A4409F33251E6BF800F88A5D /* ScannerViewController.swift */,
+				A47352CC251FE496000F0793 /* VideoProcessor.swift */,
+				A47352D1251FE4B9000F0793 /* BarcodeProcessor.swift */,
 			);
 			path = ScannerApp;
 			sourceTree = "<group>";
@@ -261,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47352CD251FE496000F0793 /* VideoProcessor.swift in Sources */,
 				A4409EFD251E6A2A00F88A5D /* ViewController.swift in Sources */,
 				A4409EF9251E6A2A00F88A5D /* AppDelegate.swift in Sources */,
+				A47352D2251FE4B9000F0793 /* BarcodeProcessor.swift in Sources */,
 				A4409EFB251E6A2A00F88A5D /* SceneDelegate.swift in Sources */,
 				A4409F34251E6BF800F88A5D /* ScannerViewController.swift in Sources */,
 			);
