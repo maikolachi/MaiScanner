@@ -103,7 +103,7 @@ class ScannerViewController: UIViewController {
         
         // rotate the layer into screen orientation and scale and mirror
         let t = CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: scale, y: -scale)
-        detectionOverlay.setAffineTransform(t)
+//        detectionOverlay.setAffineTransform(t)
 //        identityLayer.setAffineTransform(t)
         // center the layer
 //        detectionOverlay.position = CGPoint(x: bounds.midX, y: bounds.midY)
@@ -129,6 +129,7 @@ class ScannerViewController: UIViewController {
 
 //        identityLayer.setAffineTransform(<#T##m: CGAffineTransform##CGAffineTransform#>)
         
+        
         let xOrigin = -detectionOverlay.frame.minY
         let yOrigin = -detectionOverlay.frame.minX
 //        identityLayer.path = UIBezierPath(rect: CGRect(x: xOrigin, y: yOrigin, width: boxWidth, height: boxHeight)).cgPath
@@ -136,10 +137,11 @@ class ScannerViewController: UIViewController {
         print(xOrigin)
         print(yOrigin)
         
-        let r = CGRect(x: 200, y: 200, width: boxWidth, height: boxHeight).applying(t)
+        let r = CGRect(x: 1000 , y: 2000, width: 100, height: 200)
+        // CGRect(x: 200, y: 200, width: boxWidth, height: boxHeight).applying(t)
         identityLayer.path = UIBezierPath(rect: r ).cgPath
         
-        identityLayer.fillColor = UIColor.clear.cgColor
+        identityLayer.fillColor = UIColor.green.cgColor
         identityLayer.lineWidth = 16
         identityLayer.strokeColor = UIColor.red.cgColor
         
