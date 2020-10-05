@@ -83,7 +83,8 @@ class ScannerViewController: UIViewController {
         detectionOverlay = CALayer()
         detectionOverlay.name = "DetectionOverlay"
         detectionOverlay.bounds = CGRect(x: 0.0, y: 0.0, width: bufferSize.width, height: bufferSize.height)
-        detectionOverlay.position = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
+        let centerRoot = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
+        detectionOverlay.position = centerRoot
         rootLayer.addSublayer(detectionOverlay)
         
         let bounds = rootLayer.bounds
@@ -96,12 +97,14 @@ class ScannerViewController: UIViewController {
         if scale.isInfinite {
             scale = 1.0
         }
+        
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         
         // rotate the layer into screen orientation and scale and mirror
-//        let t = CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: scale, y: -scale)
-//        detectionOverlay.setAffineTransform(t)
+        let t = CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: scale, y: -scale)
+        detectionOverlay.setAffineTransform(t)
+//        identityLayer.setAffineTransform(t)
         // center the layer
 //        detectionOverlay.position = CGPoint(x: bounds.midX, y: bounds.midY)
     
@@ -109,24 +112,39 @@ class ScannerViewController: UIViewController {
     
 //        identityLayer.bounds = bounds
         
-        let boxWidth = 414 // bounds.width * 0.75
-        let boxHeight = boxWidth
+        let boxWidth: CGFloat = 207// (bounds.width * 0.75) / scale
+        let boxHeight: CGFloat = 414 //boxWidth * 2
         
 //        let x = bounds.width / 2 - boxWidth / 2
 //        let y = bounds.minY + 48 // detectionOverlay.frame.height * 0.3 - boxHeight / 2
-     
-        
+//        identityLayer.bounds = detectionOverlay.bounds
+//        identityLayer.position = CGPoint(x: detectionOverlay.bounds.midX, y: detectionOverlay.bounds.midY)
+//        identityLayer.frame = detectionOverlay.frame
+//        identityLayer.position = CGPoint(x: detectionOverlay.bounds.minX, y: detectionOverlay.bounds.midY)
         identityLayer.frame = detectionOverlay.frame
+        detectionOverlay.addSublayer(identityLayer)
+        
         
 //        identityLayer.position = CGPoint(x: detectionOverlay.frame.midX, y: detectionOverlay.frame.midY)
 
-        identityLayer.path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: boxWidth, height: boxHeight)).cgPath
+//        identityLayer.setAffineTransform(<#T##m: CGAffineTransform##CGAffineTransform#>)
         
-        identityLayer.fillColor = UIColor.green.cgColor
-        identityLayer.lineWidth = 8
+        let xOrigin = -detectionOverlay.frame.minY
+        let yOrigin = -detectionOverlay.frame.minX
+//        identityLayer.path = UIBezierPath(rect: CGRect(x: xOrigin, y: yOrigin, width: boxWidth, height: boxHeight)).cgPath
+//
+        print(xOrigin)
+        print(yOrigin)
+        
+        let r = CGRect(x: 200, y: 200, width: boxWidth, height: boxHeight).applying(t)
+        identityLayer.path = UIBezierPath(rect: r ).cgPath
+        
+        identityLayer.fillColor = UIColor.clear.cgColor
+        identityLayer.lineWidth = 16
         identityLayer.strokeColor = UIColor.red.cgColor
         
-        detectionOverlay.addSublayer(identityLayer)
+        
+//        detectionOverlay.addSublayer(identityLayer)
         self.startCaptureSession()
         
         //        let boxXScale = boxWidth / detectionOverlay.frame.width
